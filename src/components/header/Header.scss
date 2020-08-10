@@ -1,0 +1,178 @@
+@import "../basic";
+
+.SideBar{
+    position: fixed;
+    right:0;
+    top:0;
+    height: 100vh;
+    width: 40vw;
+    min-width: 180px;
+    max-width: 300px;
+    padding:10px;
+    z-index: $Z-Index-SideBar;
+    background-color: white;
+    transition:all 0.5s ease-out;
+};
+
+.navTextwrapV{
+    display: flex;
+    flex-direction: column;
+    .navItemsV{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: .5rem;
+        align-items: flex-start;
+        .navItemV{
+            text-transform: uppercase;
+            text-decoration: none;
+            color:$blackColor;
+            border-bottom: 1px solid transparent;
+            transition:border-bottom 0.2s;
+            margin-bottom: .8rem;
+        };
+        .navItemV:hover{
+            border-bottom: 1px solid $blackColor; 
+            cursor: pointer;
+        }
+    }
+};
+
+.header-navbar{
+    padding:.8rem $sidePaddingXSmall;
+    position:fixed;
+    width:100%;
+    min-width: 320px;
+    z-index: $Z-Index-HeaderNavbar;
+    height: 70px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+};
+.header-navbar-white{
+    background-color: white;
+    border-bottom: .5px solid rgb(207, 207, 207);
+}
+.header-navbar-dark{
+    background-color: black;
+    border-bottom:none;
+}
+.hide{
+    display: none;
+}
+
+.navLogo{
+    max-width: 65vw;
+    width: 260px;
+    min-width: 210px;
+    img{
+        width: 100%;;
+    }
+}
+
+.navRight{
+    position: relative;
+    .navMenu{
+        position: absolute;
+        right:0;
+        bottom:-.3rem;
+        .navMenuIcon{
+            display: flex;
+            align-items: center;
+            transform: scale(1.2);
+        }
+    }
+    .navMenu-dark{
+        .navMenuIcon{
+            color:white
+        }
+    }
+
+    .navText{
+        position: absolute;
+        right:0;
+        bottom: 0;
+        width:700px;
+        display: none;
+        .navTextwrap{
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            .navItems{
+                display: flex;
+                .navItem{
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    color:$blackColor;
+                    border-bottom: 1px solid transparent;
+                    transition:border-bottom 0.2s;
+                    margin-right: 1rem; 
+                };
+                .navItem-dark{
+                    color:$whiteColor;
+                }
+                .navItem:hover{
+                    border-bottom: 1px solid $blackColor;
+                    cursor: pointer;
+                }
+                .navItem-dark:hover{
+                    border-bottom: 1px solid $whiteColor;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 576px) {
+    .header-navbar{
+        padding:.8rem $sidePaddingSmall;
+    }
+    .navLogo{
+        width: 260px;
+    }
+ }
+@media (min-width: 768px){}
+@media (min-width: 992px){ 
+    .navLogo{
+        width: 280px;
+    };
+    .navRight{
+        .navMenu{
+            display: none;
+        };    
+        .navText{
+            display: inline-block;
+        }
+    }
+}
+@media (min-width: 1200px){
+    .navRight{
+        .navText{
+            width:820px;
+            .navTextwrap{
+                .navItems{
+                    .navItem{
+                        font-size: 105%;
+                        margin-right: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+ }
+
+// Extra small (xs) devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+ 
+// Small (sm) devices (landscape phones, 576px and up)
+// @media (min-width: 576px) { ... }
+ 
+// Medium (md) devices (tablets, 768px and up)
+// @media (min-width: 768px) { ... }
+ 
+// Large (lg) devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+ 
+// Extra (xl) large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }

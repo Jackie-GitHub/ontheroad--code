@@ -1,0 +1,16 @@
+@import './basic';
+
+.otr-modal{
+    position:fixed;
+    z-index:$Z-Index-Modal;
+    width:80%;
+    min-width: 256px;
+    left:10%;
+    top:10%;
+    background-color: white;
+    transition: all 0.3s ease-out;
+    padding:1rem;
+    overflow: auto;
+    max-height:80%;
+    box-shadow:1px 1px 1px rgb(105, 104, 104);
+}

@@ -1,0 +1,60 @@
+@import './basic';
+
+.MainDescription{
+    min-width: 320px;
+    text-align: center;
+    margin-top:$sectionDistance;
+    padding:0 $sidePaddingXSmall $sectionDistance $sidePaddingXSmall;
+    background-color:$backColor;
+    h2{
+        font-size: 1.5rem;
+    }
+    p{
+        font-size: 110%;
+        word-spacing: 2px;
+    }
+    span{
+        display:inline;
+        text-transform: uppercase;
+        font-family:'Cardo',serif;
+        font-weight: 600;
+    }
+    .mainP{
+        margin-top:1.5rem;
+        margin-bottom: 0;
+    }
+    .secondary{
+        font-size: 110%;
+        color:#999;
+        margin-top:0;
+    };
+}
+
+
+@media (min-width: 576px) { 
+    .MainDescription{
+        padding-left:$sidePaddingSmall;
+        padding-right:$sidePaddingSmall;
+    }
+};
+ 
+
+@media (min-width: 768px) {
+    .MainDescription{
+        h2{
+            font-size: 2rem;
+        }
+    };
+    .MainDescription p{
+    };
+
+}
+ 
+
+@media (min-width: 992px) {
+    .MainDescription p{
+    };
+ }
+ 
+
+@media (min-width: 1200px) {  }

@@ -1,0 +1,182 @@
+@import "./basic";
+
+
+.HeaderHeight{
+    height: 70px;
+}
+.MainPage{
+    height: 210vw;
+    min-height: 672px;
+    display:flex;
+    flex-direction: column;
+};
+
+.bigcities,
+.smalltowns,
+.nature{
+    //min-width: 320px;
+    flex:1;
+    transition:flex 0.8s;
+    position:relative;
+    overflow: hidden;
+    transition: all 0.5s;
+    .MainPage-Text{
+        position:absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        top:90%;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.8s;
+        h4{
+            padding:0;
+            color:$whiteColor;
+            font-size: 100%;
+            font-weight: normal;
+            transform:translateY(-50%);
+            text-shadow: 1px 1px 2px #000000;
+            transition: all 0.5s;
+        };
+    };
+    .MainPage-Image{
+        position:absolute;
+        top:0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    };
+    .MainPage-Sunlight{
+        position:absolute;
+        top:0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: all 0.5s;
+    };
+    img{
+        display:block;
+        width: 100%;
+        filter:brightness(100%) contrast(100%);
+        transition: all 0.5s;
+    };
+    &:hover{
+        cursor: pointer;
+        .MainPage-Text{
+            h4{
+                font-size: 150%;
+                transform:translateY(-50%);
+                font-weight: bold;
+            };
+        }
+        .MainPage-Sunlight{
+            opacity: 0.9;
+        }
+        img{
+            filter:brightness(110%) contrast(105%);
+        }
+    };
+};
+
+@media (min-width: 576px){
+    // .MainPage{
+    //     min-height: 0;
+    //     height:42vw;
+    //     max-height: 87vh;
+    //     flex-direction: row;  
+    // };
+    
+    .bigcities,
+    .smalltowns,
+    .nature{
+        // .MainPage-Text{
+        //     h4{ 
+        //         font-size: 120%;               
+        //     };
+        // };
+        // img{
+        //     width: auto;
+        //     height: 100%;
+        // };
+        &:hover{
+            // flex:1.5;
+            h4{
+                font-size: 150%;
+            };
+            .MainPage-Sunlight{
+            }
+            img{
+            }
+        };
+    };
+}
+
+@media (min-width: 768px) {
+    .MainPage{
+        min-height: 0;
+        height:42vw;
+        max-height: 87vh;
+        flex-direction: row;  
+    }; 
+    .bigcities,
+    .smalltowns,
+    .nature{               
+        .MainPage-Text{
+            top:92%;
+            h4{
+                font-size: 150%;  
+            };
+        };
+        img{
+            width: auto;
+            height: 100%;
+        };
+        &:hover{
+            flex:1.5;
+            .MainPage-Color{
+            };
+            h4{
+                font-size: 210%;
+            };
+        };
+    };
+ };
+
+ @media (min-width: 992px){
+    .bigcities,
+    .smalltowns,
+    .nature{               
+        .MainPage-Text{
+            top:95%;
+            h4{                
+            };
+        };
+        &:hover{
+            .MainPage-Color{
+            };
+            h4{
+                font-size: 240%;
+                color:rgb(0, 0, 0);
+                text-shadow: 2px 2px 2px #ffffffa9;
+            };
+        };
+    };
+}
+
+// Extra small (xs) devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+ 
+// Small (sm) devices (landscape phones, 576px and up)
+// @media (min-width: 576px) { ... }
+ 
+// Medium (md) devices (tablets, 768px and up)
+// @media (min-width: 768px) { ... }
+ 
+// Large (lg) devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+ 
+// Extra (xl) large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }

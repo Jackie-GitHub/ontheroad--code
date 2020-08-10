@@ -1,0 +1,37 @@
+@import "./basic";
+.searchbar-form{
+    border:1px solid rgb(87, 87, 87);
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 180px;
+    .searchbar-input{
+        width: 7rem;
+        border: none;
+        background-color: transparent;
+        margin-left:10px;
+    };
+    .searchbar-btn{
+        border: none;
+        background-color: transparent;
+    }
+};
+.searchbar-form-dark{
+    border:1px solid $whiteColor;
+    .searchbar-input{
+        color:$whiteColor;
+    }
+    .searchbar-btn{
+        color:$whiteColor;
+    }
+}
+
+/* clears the 'X' from Internet Explorer */
+input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal {  display: none; width : 0; height: 0; }
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }

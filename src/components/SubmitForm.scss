@@ -1,0 +1,90 @@
+@import './basic';
+.SubmitForm{
+    padding-bottom:$sectionDistance;
+    
+    p{
+        font-size: 130%;
+        text-align: center;
+        word-spacing: 2px;
+    };
+    textarea{
+        margin-top:1rem;
+    }
+};
+
+.Form{
+    width: 95%;
+    margin: auto;
+    margin-top:2rem;
+    .Form-row{
+        align-items: center;
+    }
+}
+
+input[type=text],
+input[type=email]{
+
+};
+
+@media (min-width: 576px) { 
+    .SubmitForm{
+        p{
+            width: 90%;
+            margin: auto;
+        };
+    };
+    .Form{
+        margin-top:2rem;
+        width: 90%;
+    }
+ }
+
+ @media (min-width: 768px) { 
+    .SubmitForm{
+        p{
+            width: 70%;
+            
+        };
+    };
+    .Form{
+        width: 70%;
+    }
+ }
+
+ @media (min-width: 992px) { 
+    .SubmitForm{
+        p{
+            width: 60%;
+        };
+    };
+    .Form{
+        width: 60%;
+    }
+ }
+
+ @media (min-width: 1200px) { 
+    .SubmitForm{
+        p{
+            width: 50%;
+        };
+    };
+    .Form{
+        width: 50%;
+    }
+ }
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/

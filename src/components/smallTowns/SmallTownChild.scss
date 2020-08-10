@@ -1,0 +1,94 @@
+@import '../basic';
+.SmallTowns-building{
+    height:100%;
+    position: relative;
+    background-size:100% 100%;
+    background-position: center;
+    h5{ 
+        left:5%;
+        width:90%;
+        top:46%;
+        position:absolute;
+        height: 7%;
+        margin:0;
+        font-weight: 600;
+        font-size: 70%;
+        font-weight: 800;
+        text-shadow: 1px 1px 1px rgb(116, 115, 115);
+        cursor: pointer;
+    }
+    .SmallTowns-imageFrame{
+        position:absolute;
+        top:54.5%;
+        height: 30.5%;
+        width: 75%;
+        left:12.5%;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        img{
+            height: 92%;
+            width: 94%;
+        }
+    }
+    
+}
+
+.SmallTowns-B1{
+    background: url('../../resources/img/street1.jpg');
+    background-size:100% 100%;
+    background-position: center;
+}
+
+.SmallTowns-B2{
+    background: url('../../resources/img/street2.jpg');
+    background-size:100% 100%;
+    background-position: center;
+}
+
+.SmallTowns-B3{
+    background: url('../../resources/img/street3.jpg');
+    background-size:100% 100%;
+    background-position: center;
+}
+
+@media (min-width: 450px){
+    .SmallTowns-building{
+        h5{
+            font-size: 90%; 
+        }
+    }  
+}
+
+@media (min-width: 576px){
+    .SmallTowns-building{
+        h5{
+            font-size: 90%; 
+        }
+    }  
+}
+
+@media (min-width: 768px){
+    .SmallTowns-building{
+        h5{
+            font-size: 105%; 
+        }
+    }  
+}
+@media (min-width: 992px){ 
+    .SmallTowns-building{
+        h5{
+            font-size: 135%; 
+        }
+    } 
+}
+
+@media (min-width: 1200px){ 
+    .SmallTowns-building{
+        h5{
+            font-size: 150%; 
+        }
+    } 
+}

@@ -1,0 +1,59 @@
+@import './basic';
+.TextSectionWrap{
+    background-color: $backColor;
+    font-family: $font-vary;
+    padding:2rem 3rem $sectionDistance 3rem; 
+}
+
+
+.TextSection{
+    display: grid;
+    column-gap:2rem;
+    .Title-TextSection{
+        display: flex;
+        justify-content: center;
+        div{
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            border-bottom: 1px solid transparent;
+            transition:border-bottom 0.5s;
+            &:hover{
+                cursor: pointer;
+                border-bottom: 1px solid black;
+            }
+        }
+    };
+    .Quote-TextSection{
+        text-align: justify;
+        line-height: 145%;
+        padding-top:20px;
+        &:before{
+            content:"\201C";
+            font-size: 300%;
+        };
+    };
+    
+    .Merge-TextSection{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        .Book-TextSection{
+            border:1px solid rgb(214, 214, 214);
+            img{
+                width: 100px;
+            }
+        }
+        .Author-TextSection{
+            max-width:180px;
+            text-align: right;
+            color:grey;
+            margin-right: 1rem;
+            font-size: 90%;
+            line-height: 120%;
+            &:before{
+                content: '\2014';
+                margin-right:0.5rem;
+            };
+        }
+    };
+}

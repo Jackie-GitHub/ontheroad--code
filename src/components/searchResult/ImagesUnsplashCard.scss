@@ -1,0 +1,34 @@
+.ImagesUnsplashCard{
+    //width:24%;
+    img{
+        width: 100%;
+        height:50vw;
+        object-fit: cover;
+    }
+    p{
+        font-size: 70%;
+    }
+}
+
+@media (min-width: 576px) { 
+    .ImagesUnsplashCard{
+        img{
+            height:20vw;
+        }
+    }
+};
+ 
+
+@media (min-width: 768px) {
+   
+}
+ 
+
+@media (min-width: 992px) {
+    
+}
+ 
+
+@media (min-width: 1200px) {
+
+}

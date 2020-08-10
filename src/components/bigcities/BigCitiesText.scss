@@ -1,0 +1,22 @@
+@import '../basic';
+
+.BigCitiesText{
+    font-family: $font-vary;
+    padding:2rem $sidePaddingXSmall $sectionDistance $sidePaddingXSmall;
+    background-color: $backColor;
+    min-width: 320px;
+}
+
+@media (min-width: 576px) {
+    .BigCitiesText{
+        padding: 2rem $sidePaddingSmall $sectionDistance $sidePaddingSmall;
+    }
+}
+
+@media (min-width: 768px) {
+    .BigCitiesText {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 2rem;
+    }
+}

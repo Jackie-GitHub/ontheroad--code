@@ -1,0 +1,20 @@
+@import '../basic';
+.SmallTownText{
+    background-color: $backColor;
+    font-family: $font-vary;
+    padding:0 $sidePaddingXSmall $sectionDistance $sidePaddingXSmall;
+}
+
+@media (min-width: 576px) {
+    .SmallTownText{
+        padding: 0 $sidePaddingSmall $sectionDistance $sidePaddingSmall;
+    }
+}
+
+@media (min-width: 768px) {
+    .SmallTownText {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+    }
+}

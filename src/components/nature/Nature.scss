@@ -1,0 +1,101 @@
+@import '../basic';
+.Nature{
+    position: relative;
+    text-align:center;
+}
+
+.naturemain{
+    .natureBack{
+        position:relative;
+        background-color: black;
+        background-image: url('../../resources/img/naturebackgroundV.jpg');
+        height: 140vw;
+        min-height: 448px;
+        background-position:center;
+        background-size: cover;
+    }
+    .natureActivity{
+        position:absolute;
+        width:30%;
+    }
+};
+
+.natureBeach{
+    top:85%;
+    left:55%;
+};
+
+.natureNPark{
+    top:44%;
+    left:50%;
+};
+
+.natureSki{
+    top:34%;
+    left:32%;
+};
+
+.natureRainforest{
+    top:50%;
+    left:18%;
+};
+
+.natureWaterfalls{
+    top:55%;
+    left:90%;
+};
+
+.natureLake{
+    top:72%;
+    left:5%;
+};
+
+.natureGrassland{
+    top:72%;
+    left:35%;
+};
+
+
+@media (min-width: 768px) {
+    .naturemain{
+        .natureBack{
+            background-image: url('../../resources/img/naturebackground.jpg');
+            height: 50vw;
+        }
+    };
+    
+    .natureBeach{
+        top:90%;
+        left:70%;
+    };
+    
+    .natureNPark{
+        top:48%;
+        left:44%;
+    };
+    
+    .natureSki{
+        top:38%;
+        left:18%;
+    };
+    
+    .natureRainforest{
+        top:52%;
+        left:64%;
+    };
+    
+    .natureWaterfalls{
+        top:44%;
+        left:87%;
+    };
+    
+    .natureLake{
+        top:74%;
+        left:5%;
+    };
+    
+    .natureGrassland{
+        top:74%;
+        left:35%;
+    };
+}

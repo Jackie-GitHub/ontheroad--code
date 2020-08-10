@@ -1,0 +1,52 @@
+.weather-wrap{
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 70%;
+    flex-direction: column;
+};
+
+.weatherTitle{
+    font-size: 80%;
+    color: rgb(202, 202, 202);
+}
+
+.weatherInfo{
+    display: flex;
+    align-items: center;
+    .weather-icon{
+        padding-right: 20px;
+        img{
+            width: 50px;
+            height: auto;
+        }
+    };
+    
+    .weather-details{
+        .weather-main{
+            text-transform: uppercase;
+        };
+        .weather-temperature{
+            &:after{
+                content:"\2109";
+            }
+        };
+    };
+}
+
+
+
+@media (min-width: 576px) {
+   }
+  @media (min-width: 768px){
+    .weather-wrap{
+        font-size: 75%;
+    };
+    
+  }
+  @media (min-width: 992px){ 
+      
+  }
+  @media (min-width: 1200px){
+      
+   }

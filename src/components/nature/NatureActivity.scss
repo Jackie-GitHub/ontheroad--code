@@ -1,0 +1,120 @@
+@import '../basic';
+
+.natureActivity2{
+    position:relative;
+    transform:translateX(-20px);
+    transform:translateY(-20px);
+    .naturePlace{
+        position:absolute;
+        width:30px;
+        height:30px;
+        transition: all 0.5s ease-out;
+        cursor: pointer;
+        div{
+            font-size: 50%;
+            color:white;
+            background-color: black;
+        }
+        img{
+            width: 100%;
+            height:100%;
+        }
+    }
+    .natureArrow{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }          
+};
+
+.naturePlace0{
+    display:flex;
+    text-shadow: 1px 1px 2px rgb(255, 255, 255);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: $Z-Index-naturePlace0;
+    h6{
+        margin:0;
+        text-transform: uppercase;
+        font-size: 58%;
+    };
+};
+
+@media (min-width: 450px) {
+    .natureActivity2{
+        transform:translateX(-20px);
+        transform:translateY(-20px);
+        .naturePlace{
+            width:40px;
+            height:40px;
+            div{
+                font-size: 60%;
+            };
+        };     
+    };
+    .naturePlace0{
+        h6{
+            font-size: 60%;
+        };
+    };
+
+ }
+@media (min-width: 768px){
+    .natureActivity2{
+        transform:translateX(-20px);
+        transform:translateY(-20px);
+        .naturePlace{
+            width:40px;
+            height:40px;
+            div{
+                font-size: 60%;
+            };
+        };     
+    };
+    
+    .naturePlace0{
+        h6{
+            font-size: 65%;
+        };
+    };
+};
+@media (min-width: 992px){ 
+    .natureActivity2{
+        transform:translateX(-30px);
+        transform:translateY(-30px);
+        .naturePlace{
+            width:60px;
+            height:60px;
+            div{
+                font-size: 80%;
+            };
+        };     
+    };
+    
+    .naturePlace0{
+        h6{
+            font-size: 80%;
+        };
+    };
+}
+
+@media (min-width: 1200px){ 
+    .natureActivity2{
+        transform:translateX(-40px);
+        transform:translateY(-40px);
+        .naturePlace{
+            width:80px;
+            height:80px;
+            div{
+                font-size: 80%;
+            };
+        };     
+    };
+    
+    .naturePlace0{
+        h6{
+            font-size: 80%;
+        };
+    };
+}

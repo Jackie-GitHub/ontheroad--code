@@ -1,0 +1,133 @@
+@import "../basic";
+
+.BigCitiesTextChild{
+    padding:2rem 0rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.BigCitiesTextChild-Top{
+    .BigCitiesTextChild-title{
+        display: inline-block;
+        text-transform: uppercase;
+        border-bottom: 1px solid transparent;
+        font-size: 1.5rem;
+        transition:border-bottom 0.5s;
+        &:hover{
+            cursor: pointer;
+            border-bottom: 1px solid black;
+        }
+    };
+    p{
+        overflow: auto;
+        text-align: justify;
+        line-height: 145%;
+        padding-top:20px;
+        &:before{
+            content:"\201C";
+            font-size: 300%;
+        };
+    };
+}
+
+
+.bookInfowrap{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top:1rem;
+    img{
+        width:80px;
+        height:80px;
+        object-fit: cover;
+        border-radius: 50%;
+    };
+    .bookInfotext {
+        h5{
+            font-size: 100%;
+        }
+        a{
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            color:$blackColor;
+            text-decoration: none;
+            h5{
+                padding-left:.5rem;
+            }
+        }
+    }
+};
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+    .bookInfowrap{
+        display:block;
+        .bookInfotext {
+            padding-top: 1rem;
+            text-align: center;
+            h5{
+                font-size: 90%;
+            }
+            a{
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                h5{
+                    padding-left:.5rem;
+                }
+            }
+        }
+    };
+    
+}
+@media (min-width: 992px) {
+    .bookInfowrap{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        .bookInfotext {
+            h5{
+                font-size: 90%;
+            }
+            a{
+                justify-content: flex-end;
+                
+            }
+        }
+    };
+};
+
+@media (min-width: 1200px) {
+    .BigCitiesTextChild p{
+        height: 260px;
+    };
+    .bookInfowrap{
+        .bookInfotext {
+            h5{
+                font-size: 98%;
+            }
+        }
+    };
+}
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
