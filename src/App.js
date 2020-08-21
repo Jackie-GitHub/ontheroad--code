@@ -16,7 +16,6 @@ import SubmitForm from './components/SubmitForm';
 import Footer from './components/Footer';
 
 import youtube from './axios/youtube';
-//import openWeather from './axios/openWeather';
 import weatherbit from './axios/weatherbit';
 import unsplash from './axios/unsplash';
 
@@ -29,14 +28,6 @@ class App extends React.Component {
     selectedVideo:null,
     search:false,
     sideBar:false,
-    // weather:{
-    //   id:'',
-    //   main:'',
-    //   description:'',
-    //   icon:''
-    // },
-    // weathertTemperature:{},
-    // weatherError:'',
 
     weatherBit:{
       icon:'',
@@ -54,25 +45,10 @@ class App extends React.Component {
     console.log(term);
     console.log('weatherCity:');
     console.log(weatherCity);
-    // let weather={};
-    // let weatherError='';
-    // let weathertTemperature={};
 
     let weatherBit = {};
     let weatherBitTemperature = '';
     let weatherBitError = '';
-
-    // await openWeather.get('weather?',{
-    //   params:{
-    //     q:weatherCity,
-    //     units:'imperial'
-    //   }
-    // }).then((response)=>{
-    //   weather = response.data.weather[0];
-    //   weathertTemperature = response.data.main;
-    // }).catch((error)=>{
-    //   weatherError=error;
-    // });
 
     await weatherbit.get('weather?',{
       params:{
@@ -126,7 +102,6 @@ class App extends React.Component {
          top: offsetPosition,
          behavior: "smooth"
     });
-    //this.refs[refName].scrollIntoView({behavior: "smooth", block: "start"});
   };
 
   scrollPageCenter = (refName) => {

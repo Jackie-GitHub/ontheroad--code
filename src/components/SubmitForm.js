@@ -37,7 +37,7 @@ class SubmitForm extends React.Component {
                 <h2>LOOKING FOR MORE?</h2>
                 <form className="Form" method="post" action="#">
                         <div className="form-group">
-                            <label className="col-form-label" htmlFor="textarea" >Please descript the ideal trip in your mind below.We will send you personalized travel plan. </label><br></br>
+                            <label className="col-form-label" htmlFor="textarea" >Please describe the ideal trip in your mind below.We will send you personalized travel plan. </label><br></br>
                             <textarea className="form-control" name="message" id="textarea" rows="2" placeholder="My ideal trip would include ..."></textarea>                                                                      
                         </div>
                         <div className="form-group row Form-row">

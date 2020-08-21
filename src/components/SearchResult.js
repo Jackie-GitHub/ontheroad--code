@@ -1,7 +1,6 @@
 import React from 'react';
 import './SearchResult.scss';
 import SearchResultWeather from './SearchResultWeather';
-import ImagesUnsplash from './searchResult/ImagesUnsplash';
 import SearchBar from './SearchBar';
 
 class SearchResult extends React.Component{
@@ -63,9 +62,6 @@ class SearchResult extends React.Component{
                 <div className="col-12 col-sm-3">
                     {searchResult}
                 </div>
-            </div>
-            <div className = "SearchResultShopping">
-                <ImagesUnsplash imagesUnsplash = {this.props.imagesUnsplash}/>
             </div>
             </>
         );
