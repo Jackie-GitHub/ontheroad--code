@@ -17,7 +17,6 @@ import Footer from './components/Footer';
 
 import youtube from './axios/youtube';
 import weatherbit from './axios/weatherbit';
-import unsplash from './axios/unsplash';
 
 import './App.scss';
 
@@ -35,9 +34,7 @@ class App extends React.Component {
       description:''
     },
     weatherBitTemperature:'',
-    weatherBitError:'',
-
-    imagesUnsplash:[]
+    weatherBitError:''
   };
 
   onSearch =async(term,weatherCity) => {
@@ -55,9 +52,6 @@ class App extends React.Component {
         city:weatherCity
       }
     }).then((response)=>{
-      console.log(response);
-      console.log(response.data.data[0].weather);
-      console.log(response.data.data[0].temp);
       weatherBit = response.data.data[0].weather;
       weatherBitTemperature = response.data.data[0].temp;
 
@@ -72,16 +66,11 @@ class App extends React.Component {
       }
     });
     const videosR = response.data.items;
-
-    const responseUnsplash = await unsplash.get('/search/photos',{
-        params:{query:`${term} gift`,
-        per_page:4}
-    });
-    
+        
     this.setState({search:true, sideBar:false,selectedVideo:videosR[0],videos:[...videosR],
       weatherBit:weatherBit,
       weatherBitTemperature:weatherBitTemperature,
-      weatherBitError:weatherBitError,imagesUnsplash:responseUnsplash.data.results});
+      weatherBitError:weatherBitError});
   };
 
   offSearch = () => {
