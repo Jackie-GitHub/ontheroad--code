@@ -1,5 +1,5 @@
 import axios from 'axios';
-const KEY = 'xxxxxxxxxx';
+const KEY = 'xxx';
  
 export default axios.create({
     baseURL:'https://api.weatherbit.io/v2.0/current',

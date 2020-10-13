@@ -9,27 +9,54 @@ class SmallTowns extends React.Component {
         streetNumbers:[0,1,2,3,4]
     };
 
-    rotateArrayNext = async () => {
-        const arr=this.state.streetNumbers;
-        const lastElement = arr.pop();
-        await this.setState({streetNumbers:[lastElement,...arr]});
+    rotateArrayNext = () => {
+        this.setState((prevState)=>{
+            const arr=[...prevState.streetNumbers];
+            const lastElement = arr.pop();
+            return {
+                streetNumbers:[lastElement,...arr]
+            }
+        });
     };
 
-    rotateArrayPrev = async () => {
-        const arr=this.state.streetNumbers;
-        const firstElement = arr.shift();
-        await this.setState({streetNumbers:[...arr,firstElement]});
+    rotateArrayPrev = () => {
+        this.setState((prevState)=>{
+            const arr=[...prevState.streetNumbers];
+            const firstElement = arr.shift();
+            return {
+                streetNumbers:[...arr,firstElement]
+            }
+        });
     }; 
+
+    clickable = true;
+    lockClick = () =>{
+        this.clickable = false;
+        setTimeout(()=>{
+            this.clickable = true
+        },550)
+    }
     
     render(){
         return (
             <div className="SmallTowns">
                 <h2>SMALL TOWNS</h2>
                 <div className="SmallTownsContent">
-                    <div className="smallTowns-carousel" onClick={this.rotateArrayPrev}>
+                    <div className="smallTowns-carousel" 
+                        onClick={()=>{
+                            if (this.clickable) {
+                                this.rotateArrayPrev();
+                            }
+                            this.lockClick();
+                        }}>
                         <ion-icon size="large" name="chevron-back-outline"  ></ion-icon>
                     </div>
-                    <div className="smallTowns-carousel smallTowns-carouselNext" onClick={this.rotateArrayNext}>
+                    <div className="smallTowns-carousel smallTowns-carouselNext" onClick={()=>{
+                            if (this.clickable) {
+                                this.rotateArrayNext();
+                            }
+                            this.lockClick();
+                        }}>
                         <ion-icon size="large" name="chevron-forward-outline"></ion-icon>
                     </div>
                     <div className="smallTowns-animal">

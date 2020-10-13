@@ -56,7 +56,7 @@ class App extends React.Component {
       weatherBitTemperature = response.data.data[0].temp;
 
     }).catch((err)=>{
-      console.log('something is wrong from weatherbit.');
+      console.log("No weather infomation");
       weatherBitError = err;
     });    
 
