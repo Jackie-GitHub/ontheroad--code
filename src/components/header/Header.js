@@ -8,8 +8,6 @@ import SearchBarDarkBack from '../SearchBarDarkBack';
 import SideBar from '../SideBar';
 
 class Header extends React.Component {
-    state={term:'',weatherCity:''};
-
     componentDidMount() {
         window.addEventListener('scroll', this.headerStyleChange)
     }
@@ -30,11 +28,6 @@ class Header extends React.Component {
             document.getElementById("nav-dark").classList.add('hide');
         }
     }
-
-    onSearchSubmit= async (term,weatherCity)=>{
-        await this.setState({term:term,weatherCity:weatherCity});
-        this.props.searchTerm(this.state.term,this.state.weatherCity);
-    };
   
     render() {
         return (
@@ -49,7 +42,7 @@ class Header extends React.Component {
                         <div onClick={()=> {this.props.onclickToTop('nature');this.props.hideSideBar()}} className="navItemV" >Nature</div>
                         <div onClick={()=> {this.props.onclickToTop('submitForm');this.props.hideSideBar()}} className="navItemV" >Contact</div>
                     </div>
-                    <SearchBar onSubmittt={this.onSearchSubmit}/>                    
+                    <SearchBar onSubmit={this.props.searchTerm}/>                    
                 </div>
             </SideBar>
               
@@ -74,7 +67,7 @@ class Header extends React.Component {
                                 <div onClick={()=> {this.props.onclickToTop('nature')}} className="navItem" >Nature</div>
                                 <div onClick={()=> {this.props.onclickToTop('submitForm')}} className="navItem" >Contact</div>
                             </div>
-                            <SearchBar onSubmittt={this.onSearchSubmit} />                    
+                            <SearchBar onSubmit={this.props.searchTerm} />                    
                         </div> 
                     </div>
                 </div>    
