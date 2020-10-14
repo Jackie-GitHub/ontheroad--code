@@ -67,7 +67,7 @@ class App extends React.Component {
     });
     const videosR = response.data.items;
         
-    this.setState({search:true, sideBar:false,selectedVideo:videosR[0],videos:[...videosR],
+    this.setState({search:true, selectedVideo:videosR[0],videos:[...videosR],
       weatherBit:weatherBit,
       weatherBitTemperature:weatherBitTemperature,
       weatherBitError:weatherBitError});
@@ -104,7 +104,7 @@ class App extends React.Component {
         <Modal onSearch={this.state.search} onclick={this.offSearch} >
             <SearchResult videos={this.state.videos} selectedVideo={this.state.selectedVideo} onSelect={this.onVideoSelect} weather={this.state.weatherBit} weatherError={this.state.weatherBitError} weathertTemperature={this.state.weatherBitTemperature} imagesUnsplash = {this.state.imagesUnsplash} feedbackWord={this.onSearch} />
         </Modal>
-        <Header feedbackWord={this.onSearch} onclickToTop={this.scrollPageTop} onclickToCenter={this.scrollPageCenter} sideBar={this.state.sideBar} showSideBar={()=>{this.setState({sideBar:true})}} hideSideBar={()=>{this.setState({sideBar:false})}}/>
+        <Header feedbackWord={this.onSearch} onclickToTop={this.scrollPageTop} onclickToCenter={this.scrollPageCenter} />
         <MainPage onclickToTop={this.scrollPageTop} />
         <div ref="mainDescription" id="mainDescription">
           <MainDescription />
