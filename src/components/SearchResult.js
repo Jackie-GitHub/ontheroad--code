@@ -8,7 +8,7 @@ class SearchResult extends React.Component{
 
     onSearchSubmit= async (term,weatherCity)=>{
         await this.setState({term:term,weatherCity:weatherCity});
-        this.props.feedbackWord(this.state.term,this.state.weatherCity);
+        this.props.searchTerm(this.state.term,this.state.weatherCity);
     };    
     
     render (){  

@@ -8,8 +8,7 @@ import SearchBarDarkBack from '../SearchBarDarkBack';
 import SideBar from '../SideBar';
 
 class Header extends React.Component {
-    state={term:'',weatherCity:'',
-            sideBar:false};
+    state={term:'',weatherCity:''};
 
     componentDidMount() {
         window.addEventListener('scroll', this.headerStyleChange)
@@ -34,21 +33,21 @@ class Header extends React.Component {
 
     onSearchSubmit= async (term,weatherCity)=>{
         await this.setState({term:term,weatherCity:weatherCity});
-        this.props.feedbackWord(this.state.term,this.state.weatherCity);
+        this.props.searchTerm(this.state.term,this.state.weatherCity);
     };
   
     render() {
         return (
             <div>
 
-            <SideBar onMenuClick={this.state.sideBar} onclick={()=>{this.setState({sideBar:false})}} >
+            <SideBar onMenuClick={this.props.sideBar} onclick={()=>{this.props.hideSideBar()}} >
                 <div className="navTextwrapV" >
                     <div className="navItemsV">
-                        <div onClick={()=> {this.props.onclickToCenter('mainDescription');this.setState({sideBar:false}) }} className="navItemV" >About </div>
-                        <div onClick={()=> {this.props.onclickToTop('bigCities');this.setState({sideBar:false})}} className="navItemV" >Big Cities</div>
-                        <div onClick={()=> {this.props.onclickToTop('smallTowns');this.setState({sideBar:false})}} className="navItemV" >Small Towns</div>
-                        <div onClick={()=> {this.props.onclickToTop('nature');this.setState({sideBar:false})}} className="navItemV" >Nature</div>
-                        <div onClick={()=> {this.props.onclickToTop('submitForm');this.setState({sideBar:false})}} className="navItemV" >Contact</div>
+                        <div onClick={()=> {this.props.onclickToCenter('mainDescription');this.props.hideSideBar() }} className="navItemV" >About </div>
+                        <div onClick={()=> {this.props.onclickToTop('bigCities');this.props.hideSideBar()}} className="navItemV" >Big Cities</div>
+                        <div onClick={()=> {this.props.onclickToTop('smallTowns');this.props.hideSideBar()}} className="navItemV" >Small Towns</div>
+                        <div onClick={()=> {this.props.onclickToTop('nature');this.props.hideSideBar()}} className="navItemV" >Nature</div>
+                        <div onClick={()=> {this.props.onclickToTop('submitForm');this.props.hideSideBar()}} className="navItemV" >Contact</div>
                     </div>
                     <SearchBar onSubmittt={this.onSearchSubmit}/>                    
                 </div>
@@ -60,7 +59,7 @@ class Header extends React.Component {
                 <div className="navLogo" onClick={()=>{window.scrollTo({top: 0,left:0,behavior: 'smooth'})}}><img src={logoImage} alt="OnTheRoad logo"/></div>
 
                 <div className="navRight" >
-                    <div className="navMenu" onClick={()=>{this.setState({sideBar:true})}} >
+                    <div className="navMenu" onClick={()=>{this.props.showSideBar()}} >
                         <div className="navMenuIcon">
                             <ion-icon name="menu-outline" size="large"></ion-icon>
                         </div>                        
@@ -84,7 +83,7 @@ class Header extends React.Component {
                 <div className="navLogo" onClick={()=>{window.scrollTo({top: 0,left:0,behavior: 'smooth'})}}><img src={logoImageWhite} alt="OnTheRoad logo white"/></div>
 
                 <div className="navRight" >
-                    <div className="navMenu navMenu-dark" onClick={()=>{this.setState({sideBar:true})}} >
+                    <div className="navMenu navMenu-dark" onClick={()=>{this.props.showSideBar()}} >
                         <div className="navMenuIcon">
                             <ion-icon name="menu-outline" size="large"></ion-icon>
                         </div>                        

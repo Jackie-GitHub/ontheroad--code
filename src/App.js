@@ -22,11 +22,11 @@ import './App.scss';
 
 class App extends React.Component {
   state={
-    searchterm:'',
+    sideBar:false,
+    search:false,
+
     videos:[],
     selectedVideo:null,
-    search:false,
-    sideBar:false,
 
     weatherBit:{
       icon:'',
@@ -67,7 +67,7 @@ class App extends React.Component {
     });
     const videosR = response.data.items;
         
-    this.setState({search:true, selectedVideo:videosR[0],videos:[...videosR],
+    this.setState({sideBar:false, search:true, selectedVideo:videosR[0],videos:[...videosR],
       weatherBit:weatherBit,
       weatherBitTemperature:weatherBitTemperature,
       weatherBitError:weatherBitError});
@@ -102,9 +102,9 @@ class App extends React.Component {
     return(
       <div className="App">
         <Modal onSearch={this.state.search} onclick={this.offSearch} >
-            <SearchResult videos={this.state.videos} selectedVideo={this.state.selectedVideo} onSelect={this.onVideoSelect} weather={this.state.weatherBit} weatherError={this.state.weatherBitError} weathertTemperature={this.state.weatherBitTemperature} imagesUnsplash = {this.state.imagesUnsplash} feedbackWord={this.onSearch} />
+            <SearchResult videos={this.state.videos} selectedVideo={this.state.selectedVideo} onSelect={this.onVideoSelect} weather={this.state.weatherBit} weatherError={this.state.weatherBitError} weathertTemperature={this.state.weatherBitTemperature}searchTerm={this.onSearch} />
         </Modal>
-        <Header feedbackWord={this.onSearch} onclickToTop={this.scrollPageTop} onclickToCenter={this.scrollPageCenter} />
+        <Header searchTerm={this.onSearch} onclickToTop={this.scrollPageTop} onclickToCenter={this.scrollPageCenter} sideBar={this.state.sideBar} showSideBar={()=>{this.setState({sideBar:true})}} hideSideBar={()=>{this.setState({sideBar:false})}} />
         <MainPage onclickToTop={this.scrollPageTop} />
         <div ref="mainDescription" id="mainDescription">
           <MainDescription />
