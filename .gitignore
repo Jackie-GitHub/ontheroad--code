@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# files contain API key
+/src/axios/weather.js
+/src/axios/youtube.js
