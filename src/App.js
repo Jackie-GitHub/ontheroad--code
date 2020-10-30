@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import Modal from './components/Modal';
 import SearchResult from './components/SearchResult';
@@ -20,9 +21,10 @@ import weatherbit from './axios/weatherbit';
 
 import './App.scss';
 
+import * as actionTypes from './store/actions/actionTypes';
+
 class App extends React.Component {
   state={
-    sideBar:false,
     search:false,
 
     videos:[],
@@ -67,7 +69,8 @@ class App extends React.Component {
     });
     const videosR = response.data.items;
         
-    this.setState({sideBar:false, search:true, selectedVideo:videosR[0],videos:[...videosR],
+    this.props.hideSideBar();
+    this.setState({search:true, selectedVideo:videosR[0],videos:[...videosR],
       weatherBit:weatherBit,
       weatherBitTemperature:weatherBitTemperature,
       weatherBitError:weatherBitError});
@@ -104,7 +107,8 @@ class App extends React.Component {
         <Modal onSearch={this.state.search} onclick={this.offSearch} >
             <SearchResult videos={this.state.videos} selectedVideo={this.state.selectedVideo} onSelect={this.onVideoSelect} weather={this.state.weatherBit} weatherError={this.state.weatherBitError} weathertTemperature={this.state.weatherBitTemperature}searchTerm={this.onSearch} />
         </Modal>
-        <Header searchTerm={this.onSearch} onclickToTop={this.scrollPageTop} onclickToCenter={this.scrollPageCenter} sideBar={this.state.sideBar} showSideBar={()=>{this.setState({sideBar:true})}} hideSideBar={()=>{this.setState({sideBar:false})}} />
+        {/* <Header searchTerm={this.onSearch} onclickToTop={this.scrollPageTop} onclickToCenter={this.scrollPageCenter} sideBar={this.state.sideBar} showSideBar={()=>{this.setState({sideBar:true})}} hideSideBar={()=>{this.setState({sideBar:false})}} /> */}
+        <Header searchTerm={this.onSearch} onclickToTop={this.scrollPageTop} onclickToCenter={this.scrollPageCenter} sideBar={this.props.sideBar} showSideBar={this.props.showSideBar} hideSideBar={this.props.hideSideBar} />
         <MainPage onclickToTop={this.scrollPageTop} />
         <div ref="mainDescription" id="mainDescription">
           <MainDescription />
@@ -130,4 +134,17 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+      sideBar:state.sideBar
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+      showSideBar: () => dispatch({type: actionTypes.SHOWSIDEBAR}),
+      hideSideBar: () => dispatch({type: actionTypes.HIDESIDEBAR})
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);
