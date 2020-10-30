@@ -24,27 +24,8 @@ import './App.scss';
 import * as actionTypes from './store/actions/actionTypes';
 
 class App extends React.Component {
-  state={
-    search:false,
-
-    videos:[],
-    selectedVideo:null,
-
-    weatherBit:{
-      icon:'',
-      code:'',
-      description:''
-    },
-    weatherBitTemperature:'',
-    weatherBitError:''
-  };
 
   onSearch =async(term,weatherCity) => {
-    console.log('term:');
-    console.log(term);
-    console.log('weatherCity:');
-    console.log(weatherCity);
-
     let weatherBit = {};
     let weatherBitTemperature = '';
     let weatherBitError = '';
@@ -68,20 +49,11 @@ class App extends React.Component {
       }
     });
     const videosR = response.data.items;
-        
+    const videos = [...videosR];
+    const selectedVideo = videosR[0];
+    
     this.props.hideSideBar();
-    this.setState({search:true, selectedVideo:videosR[0],videos:[...videosR],
-      weatherBit:weatherBit,
-      weatherBitTemperature:weatherBitTemperature,
-      weatherBitError:weatherBitError});
-  };
-
-  offSearch = () => {
-    this.setState({search:false});
-  }
-
-  onVideoSelect=(video) => {
-    this.setState({selectedVideo:video});
+    this.props.showSearch(videos,selectedVideo,weatherBit,weatherBitTemperature,weatherBitError);
   };
 
   scrollPageTop = (idName) => {
@@ -104,10 +76,9 @@ class App extends React.Component {
      
     return(
       <div className="App">
-        <Modal onSearch={this.state.search} onclick={this.offSearch} >
-            <SearchResult videos={this.state.videos} selectedVideo={this.state.selectedVideo} onSelect={this.onVideoSelect} weather={this.state.weatherBit} weatherError={this.state.weatherBitError} weathertTemperature={this.state.weatherBitTemperature}searchTerm={this.onSearch} />
+        <Modal onSearch={this.props.search} onclick={this.props.hideSearch} >
+            <SearchResult videos={this.props.videos} selectedVideo={this.props.selectedVideo} onSelect={this.props.onVideoSelect} weather={this.props.weatherBit} weatherError={this.props.weatherBitError} weathertTemperature={this.props.weatherBitTemperature}searchTerm={this.onSearch} />
         </Modal>
-        {/* <Header searchTerm={this.onSearch} onclickToTop={this.scrollPageTop} onclickToCenter={this.scrollPageCenter} sideBar={this.state.sideBar} showSideBar={()=>{this.setState({sideBar:true})}} hideSideBar={()=>{this.setState({sideBar:false})}} /> */}
         <Header searchTerm={this.onSearch} onclickToTop={this.scrollPageTop} onclickToCenter={this.scrollPageCenter} sideBar={this.props.sideBar} showSideBar={this.props.showSideBar} hideSideBar={this.props.hideSideBar} />
         <MainPage onclickToTop={this.scrollPageTop} />
         <div ref="mainDescription" id="mainDescription">
@@ -136,14 +107,32 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-      sideBar:state.sideBar
+      sideBar:state.sideBar.sideBar,
+
+      search:state.search.search,
+      videos:state.search.videos,
+      selectedVideo:state.search.selectedVideo,
+
+      weatherBit:state.search.weatherBit,
+      weatherBitTemperature:state.search.weatherBitTemperature,
+      weatherBitError:state.search.weatherBitError
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
       showSideBar: () => dispatch({type: actionTypes.SHOWSIDEBAR}),
-      hideSideBar: () => dispatch({type: actionTypes.HIDESIDEBAR})
+      hideSideBar: () => dispatch({type: actionTypes.HIDESIDEBAR}),
+      hideSearch: ()=> dispatch({type:actionTypes.HIDESEARCH}),
+      showSearch: (videos,selectedVideo,weatherBit,weatherBitTemperature,weatherBitError) => dispatch({
+        type: actionTypes.SHOWSEARCH,
+        videos:videos,
+        selectedVideo:selectedVideo,
+        weatherBit:weatherBit,
+        weatherBitTemperature:weatherBitTemperature,
+        weatherBitError:weatherBitError
+      }),
+      onVideoSelect: (video) => dispatch({type:actionTypes.ONVIDEOSELECT,video:video})
   }
 }
 
