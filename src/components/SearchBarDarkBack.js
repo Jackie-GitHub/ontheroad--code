@@ -8,7 +8,7 @@ class SearchBarDarkBack extends React.Component{
     };
     onFormSubmit=(event)=>{
         event.preventDefault();
-        this.props.onSubmittt(this.state.term,this.state.weatherCity);
+        this.props.onSubmit(this.state.term,this.state.weatherCity);
         this.setState({term:'',weatherCity:''});
     }
 

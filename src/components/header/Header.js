@@ -91,7 +91,7 @@ class Header extends React.Component {
                                 <div onClick={()=> {this.props.onclickToTop('nature')}} className="navItem navItem-dark" >Nature</div>
                                 <div onClick={()=> {this.props.onclickToTop('submitForm')}} className="navItem navItem-dark" >Contact</div>
                             </div>
-                            <SearchBarDarkBack onSubmittt={this.onSearchSubmit} />                    
+                            <SearchBarDarkBack onSubmit={this.props.searchTerm} />                    
                         </div> 
                     </div>
                 </div>    

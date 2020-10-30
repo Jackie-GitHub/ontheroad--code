@@ -48,7 +48,7 @@ class SearchResult extends React.Component{
                             <SearchResultWeather weather={this.props.weather} weatherError={this.props.weatherError} weathertTemperature={this.props.weathertTemperature} />
                         </div>
                         <div className = "SearchResultBar">
-                            <SearchBar onSubmittt={this.onSearchSubmit}/>
+                            <SearchBar onSubmit={this.onSearchSubmit}/>
                         </div>
                     </div>
                     <div className="s-video">

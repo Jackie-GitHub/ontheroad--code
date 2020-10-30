@@ -77,7 +77,7 @@ class App extends React.Component {
     return(
       <div className="App">
         <Modal onSearch={this.props.search} onclick={this.props.hideSearch} >
-            <SearchResult videos={this.props.videos} selectedVideo={this.props.selectedVideo} onSelect={this.props.onVideoSelect} weather={this.props.weatherBit} weatherError={this.props.weatherBitError} weathertTemperature={this.props.weatherBitTemperature}searchTerm={this.onSearch} />
+            <SearchResult videos={this.props.videos} selectedVideo={this.props.selectedVideo} onSelect={this.props.onVideoSelect} weather={this.props.weatherBit} weatherError={this.props.weatherBitError} weathertTemperature={this.props.weatherBitTemperature} searchTerm={this.onSearch} />
         </Modal>
         <Header searchTerm={this.onSearch} onclickToTop={this.scrollPageTop} onclickToCenter={this.scrollPageCenter} sideBar={this.props.sideBar} showSideBar={this.props.showSideBar} hideSideBar={this.props.hideSideBar} />
         <MainPage onclickToTop={this.scrollPageTop} />
